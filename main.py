@@ -4,9 +4,9 @@ class LUFYW(object):
     def __init__(self):
         ...
         
-    def calculate(self, points:tuple, ways:tuple, type:str, p1:Point, p2:Point):
-        self.browsed = []
-        if type == "--shortest":
+    def calculate(self, points:tuple, ways:tuple, p1:Point, p2:Point):
+        self.browsed = [p1,]
+        if True:
             try:
                 return self._rec(p1, p2)
             except:
@@ -16,6 +16,7 @@ class LUFYW(object):
         for pt in base.connectedto:
             if pt in self.browsed:
                 continue
+            self.browsed.append(base)
             if stop.ID == pt.ID:
                 return [True, base, stop]
             else:
